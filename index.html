@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PixelCraft Studio</title>
+
+<!-- GOOGLE FONT -->
+
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Urbanist',sans-serif;
+    background:#fffdf8;
+    color:#111827;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+    width:100%;
+    padding:22px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid #f1f5f9;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:800;
+    color:#f97316;
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#374151;
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#f97316;
+}
+
+.header-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.login-btn,
+.start-btn{
+    padding:13px 24px;
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.login-btn{
+    background:#fff7ed;
+    color:#ea580c;
+}
+
+.start-btn{
+    background:#111827;
+    color:white;
+}
+
+.start-btn:hover{
+    background:#f97316;
+}
+
+.menu-btn{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    padding:90px 8%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:70px;
+    align-items:center;
+}
+
+.hero-left span{
+    background:#fff7ed;
+    color:#ea580c;
+    padding:10px 18px;
+    border-radius:50px;
+    font-weight:700;
+    display:inline-block;
+    margin-bottom:25px;
+}
+
+.hero-left h1{
+    font-size:78px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.hero-left h1 strong{
+    color:#f97316;
+}
+
+.hero-left p{
+    color:#6b7280;
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:16px 30px;
+    border:none;
+    border-radius:16px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.primary-btn{
+    background:#f97316;
+    color:white;
+}
+
+.secondary-btn{
+    background:white;
+    border:1px solid #d1d5db;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+    transform:translateY(-5px);
+}
+
+/* HERO IMAGE */
+
+.hero-right{
+    position:relative;
+}
+
+.hero-right img{
+    width:100%;
+    border-radius:35px;
+}
+
+.review-card{
+    position:absolute;
+    background:white;
+    padding:20px;
+    border-radius:22px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.review-one{
+    top:-20px;
+    left:-20px;
+}
+
+.review-two{
+    bottom:-20px;
+    right:-20px;
+}
+
+.review-card h3{
+    color:#f97316;
+    margin-bottom:8px;
+}
+
+/* SERVICES */
+
+.services{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#6b7280;
+    font-size:18px;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.service-card{
+    background:white;
+    border-radius:28px;
+    padding:35px;
+    border:1px solid #e5e7eb;
+    transition:0.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    border-color:#f97316;
+}
+
+.service-icon{
+    width:80px;
+    height:80px;
+    border-radius:24px;
+    background:#fff7ed;
+    color:#f97316;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+.service-card h3{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.service-card p{
+    color:#6b7280;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.service-btn{
+    padding:13px 22px;
+    border:none;
+    border-radius:14px;
+    background:#111827;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.service-btn:hover{
+    background:#f97316;
+}
+
+/* TEAM */
+
+.team{
+    padding:100px 8%;
+}
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.team-card{
+    background:white;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+    transition:0.3s;
+}
+
+.team-card:hover{
+    transform:translateY(-10px);
+}
+
+.team-card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+}
+
+.team-content{
+    padding:28px;
+}
+
+.team-content h3{
+    margin-bottom:8px;
+}
+
+.team-content p{
+    color:#6b7280;
+    margin-bottom:20px;
+}
+
+.hire-btn{
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    background:#f97316;
+    color:white;
+    cursor:pointer;
+}
+
+/* STATS */
+
+.stats{
+    padding:100px 8%;
+}
+
+.stats-wrapper{
+    background:#111827;
+    padding:60px;
+    border-radius:40px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stat-card{
+    text-align:center;
+    color:white;
+}
+
+.stat-card h2{
+    font-size:60px;
+    color:#fb923c;
+    margin-bottom:12px;
+}
+
+.stat-card p{
+    color:#d1d5db;
+}
+
+/* CONTACT */
+
+.contact{
+    padding:100px 8%;
+}
+
+.contact-wrapper{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.contact-left h2{
+    font-size:58px;
+    margin-bottom:20px;
+}
+
+.contact-left p{
+    color:#6b7280;
+    line-height:1.9;
+    margin-bottom:35px;
+}
+
+.contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.contact-item{
+    display:flex;
+    gap:16px;
+    align-items:center;
+}
+
+.contact-item i{
+    width:55px;
+    height:55px;
+    border-radius:16px;
+    background:#fff7ed;
+    color:#f97316;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.contact-form{
+    background:white;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.06);
+}
+
+.form-group{
+    margin-bottom:22px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:700;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:16px;
+    border:1px solid #d1d5db;
+    border-radius:14px;
+    font-size:15px;
+    font-family:'Urbanist',sans-serif;
+}
+
+.form-group textarea{
+    resize:none;
+    height:140px;
+}
+
+.submit-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:#f97316;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111827;
+    color:white;
+    padding:70px 8% 30px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+    margin-bottom:40px;
+}
+
+.footer-box h3{
+    margin-bottom:20px;
+    font-size:26px;
+}
+
+.footer-box p{
+    color:#d1d5db;
+    line-height:1.8;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.footer-links a{
+    text-decoration:none;
+    color:#d1d5db;
+    transition:0.3s;
+}
+
+.footer-links a:hover{
+    color:#fb923c;
+}
+
+.social-icons{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.social-icons i{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#1f2937;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.social-icons i:hover{
+    background:#f97316;
+}
+
+.footer-bottom{
+    text-align:center;
+    padding-top:25px;
+    border-top:1px solid #374151;
+    color:#9ca3af;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    nav{
+        position:absolute;
+        top:90px;
+        left:0;
+        width:100%;
+        background:white;
+        flex-direction:column;
+        padding:30px;
+        display:none;
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .header-buttons{
+        display:none;
+    }
+
+    .hero-left h1{
+        font-size:55px;
+    }
+
+    .contact-wrapper{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero-left h1{
+        font-size:42px;
+    }
+
+    .section-title h2,
+    .contact-left h2{
+        font-size:38px;
+    }
+
+    .stats-wrapper{
+        padding:40px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        PixelCraft
+    </div>
+
+    <nav id="navMenu">
+
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#team">Creators</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <div class="header-buttons">
+
+        <button class="login-btn" id="loginBtn">
+            Sign In
+        </button>
+
+        <button class="start-btn" id="startBtn">
+            Start Project
+        </button>
+
+    </div>
+
+    <div class="menu-btn" id="menuBtn">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <span>
+            #1 Creative Marketplace
+        </span>
+
+        <h1>
+            Build Your Brand With <strong>Creative Experts</strong>
+        </h1>
+
+        <p>
+            Hire modern designers, developers, and marketing
+            professionals for your startup projects.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn" id="hireBtn">
+                Hire Creators
+            </button>
+
+            <button class="secondary-btn" id="portfolioBtn">
+                View Portfolio
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img 
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+            alt="Creative Team"
+        >
+
+        <div class="review-card review-one">
+
+            <h3>
+                4.9 Rating
+            </h3>
+
+            <p>
+                Trusted By Startups
+            </p>
+
+        </div>
+
+        <div class="review-card review-two">
+
+            <h3>
+                850+
+            </h3>
+
+            <p>
+                Active Projects
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+    <div class="section-title">
+
+        <h2>
+            Creative Services
+        </h2>
+
+        <p>
+            Modern solutions for growing businesses
+        </p>
+
+    </div>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-laptop-code"></i>
+
+            </div>
+
+            <h3>
+                Web Design
+            </h3>
+
+            <p>
+                Responsive websites with modern UI and animations.
+            </p>
+
+            <button class="service-btn">
+                Explore
+            </button>
+
+        </div>
+
+        <div class="service-card">
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-camera"></i>
+
+            </div>
+
+            <h3>
+                Branding
+            </h3>
+
+            <p>
+                Professional startup branding and content creation.
+            </p>
+
+            <button class="service-btn">
+                Explore
+            </button>
+
+        </div>
+
+        <div class="service-card">
+
+            <div class="service-icon">
+
+                <i class="fa-solid fa-chart-simple"></i>
+
+            </div>
+
+            <h3>
+                Marketing
+            </h3>
+
+            <p>
+                SEO, ads, and digital marketing growth campaigns.
+            </p>
+
+            <button class="service-btn">
+                Explore
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TEAM -->
+
+<section class="team" id="team">
+
+    <div class="section-title">
+
+        <h2>
+            Featured Creators
+        </h2>
+
+        <p>
+            Top freelancers from around the world
+        </p>
+
+    </div>
+
+    <div class="team-grid">
+
+        <div class="team-card">
+
+            <img 
+                src="https://i.pravatar.cc/400?img=25"
+                alt="Designer"
+            >
+
+            <div class="team-content">
+
+                <h3>
+                    Olivia Carter
+                </h3>
+
+                <p>
+                    UI/UX Designer
+                </p>
+
+                <button class="hire-btn">
+                    Hire Now
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="team-card">
+
+            <img 
+                src="https://i.pravatar.cc/400?img=12"
+                alt="Developer"
+            >
+
+            <div class="team-content">
+
+                <h3>
+                    Ethan Walker
+                </h3>
+
+                <p>
+                    Frontend Developer
+                </p>
+
+                <button class="hire-btn">
+                    Hire Now
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="team-card">
+
+            <img 
+                src="https://i.pravatar.cc/400?img=32"
+                alt="Marketing"
+            >
+
+            <div class="team-content">
+
+                <h3>
+                    Sophia Lee
+                </h3>
+
+                <p>
+                    Marketing Expert
+                </p>
+
+                <button class="hire-btn">
+                    Hire Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="stats-wrapper">
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <h2 class="counter" data-target="1200">
+                    0
+                </h2>
+
+                <p>
+                    Freelancers
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2 class="counter" data-target="950">
+                    0
+                </h2>
+
+                <p>
+                    Projects
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2 class="counter" data-target="99">
+                    0
+                </h2>
+
+                <p>
+                    Client Satisfaction
+                </p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h2 class="counter" data-target="35">
+                    0
+                </h2>
+
+                <p>
+                    Countries
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-wrapper">
+
+        <div class="contact-left">
+
+            <h2>
+                Let's Build Together
+            </h2>
+
+            <p>
+                Start your creative project with our
+                professional freelance team.
+            </p>
+
+            <div class="contact-info">
+
+                <div class="contact-item">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+
+                        <h4>
+                            Location
+                        </h4>
+
+                        <p>
+                            Bengaluru, India
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <div>
+
+                        <h4>
+                            Email
+                        </h4>
+
+                        <p>
+                            hello@pixelcraft.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <div>
+
+                        <h4>
+                            Phone
+                        </h4>
+
+                        <p>
+                            +91 9876543210
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="contact-form">
+
+            <form id="contactForm">
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input 
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input 
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Project Details
+                    </label>
+
+                    <textarea 
+                        id="message"
+                        placeholder="Write your project details"
+                    ></textarea>
+
+                </div>
+
+                <button class="submit-btn">
+                    Send Project
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-box">
+
+            <h3>
+                PixelCraft
+            </h3>
+
+            <p>
+                Creative freelance marketplace platform
+                for startups and modern brands.
+            </p>
+
+            <div class="social-icons">
+
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-x-twitter"></i>
+
+            </div>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <div class="footer-links">
+
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">Creators</a>
+                <a href="#">Contact</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>
+                Services
+            </h3>
+
+            <div class="footer-links">
+
+                <a href="#">Web Design</a>
+                <a href="#">Branding</a>
+                <a href="#">Marketing</a>
+                <a href="#">SEO</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        © 2026 PixelCraft Studio. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// MOBILE MENU
+
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+
+menuBtn.addEventListener("click",()=>{
+
+    navMenu.classList.toggle("active");
+
+});
+
+// HEADER BUTTONS
+
+document.getElementById("loginBtn").addEventListener("click",()=>{
+
+    alert("Opening Sign In Page");
+
+});
+
+document.getElementById("startBtn").addEventListener("click",()=>{
+
+    alert("Starting New Project");
+
+});
+
+document.getElementById("hireBtn").addEventListener("click",()=>{
+
+    alert("Opening Freelancer Profiles");
+
+});
+
+document.getElementById("portfolioBtn").addEventListener("click",()=>{
+
+    alert("Viewing Portfolio");
+
+});
+
+// SERVICE BUTTONS
+
+const serviceBtns = document.querySelectorAll(".service-btn");
+
+serviceBtns.forEach((btn)=>{
+
+    btn.addEventListener("click",()=>{
+
+        const service = btn.parentElement.querySelector("h3").innerText;
+
+        alert(service + " Service Opened");
+
+    });
+
+});
+
+// HIRE BUTTONS
+
+const hireBtns = document.querySelectorAll(".hire-btn");
+
+hireBtns.forEach((btn)=>{
+
+    btn.addEventListener("click",()=>{
+
+        const person = btn.parentElement.querySelector("h3").innerText;
+
+        alert("Hiring " + person);
+
+    });
+
+});
+
+// CONTACT FORM
+
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit",(e)=>{
+
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+
+    if(name === ""){
+
+        alert("Please Enter Your Name");
+
+    }
+
+    else{
+
+        alert("Thank You " + name + " Your Project Submitted");
+
+        contactForm.reset();
+
+    }
+
+});
+
+// COUNTER
+
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach((counter)=>{
+
+    const updateCounter = ()=>{
+
+        const target = +counter.getAttribute("data-target");
+
+        const current = +counter.innerText;
+
+        const increment = target / 100;
+
+        if(current < target){
+
+            counter.innerText = Math.ceil(current + increment);
+
+            setTimeout(updateCounter,20);
+
+        }
+
+        else{
+
+            counter.innerText = target;
+
+        }
+
+    };
+
+    updateCounter();
+
+});
+
+</script>
+
+</body>
+
+</html>
